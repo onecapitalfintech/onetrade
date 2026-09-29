@@ -12,66 +12,70 @@ function Logo() {
   return (
     <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true">
       <circle cx="20" cy="20" r="18" fill="#0F3D3E" />
-      <ellipse cx="20" cy="20" rx="7" ry="18" fill="none" stroke="#F59E0B" strokeWidth="1.6" opacity=".7" />
-      <path d="M2 20h36" stroke="#F59E0B" strokeWidth="1.6" opacity=".7" />
-      <text x="20" y="27.5" textAnchor="middle" fontSize="21" fontWeight="800" fill="#F59E0B" stroke="#0F3D3E" strokeWidth="3" paintOrder="stroke" fontFamily="Bricolage Grotesque, sans-serif">₹</text>
+      <path d="M8 15 Q20 3 32 15" fill="none" stroke="#F59E0B" strokeWidth="1.8" strokeLinecap="round" opacity=".8" />
+      {[[11, 16], [18, 16], [25, 16], [14.5, 10.5], [21.5, 10.5]].map(([x, y], i) => <rect key={i} x={x} y={y} width="6" height="5" fill={i % 2 ? "#FFFDF9" : "#F59E0B"} />)}
+      <path d="M7 23 H33 L29.5 30 H10.5Z" fill="#F59E0B" />
+      <path d="M8 33 q3 -2 6 0 t6 0 t6 0 t6 0" fill="none" stroke="#FFFDF9" strokeWidth="1.6" strokeLinecap="round" opacity=".7" />
     </svg>
   );
 }
 
-/* ---------- Warm trade-node illustration ---------- */
+/* ---------- B2B trade & logistics illustration ---------- */
 function TradeNode() {
   const still = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const pend = [...Array(13)].map((_, i) => {
-    const t = (i + 0.5) / 13, x = -10 + 660 * t, y = 8 + 104 * t * (1 - t);
-    return <path key={i} d={`M${x - 7} ${y} h14 l-7 24z`} fill={i % 2 ? "#0F766E" : "#F59E0B"} />;
-  });
   return (
-    <svg viewBox="0 0 640 420" className="art" role="img" aria-label="Your factory sends an invoice through a GSTN and e-Way Bill verified bridge to a buyer's office and cargo ship; cash returns in 24 hours">
-      <circle cx="320" cy="220" r="185" fill="#FDE9B8" />
-      <g stroke="#F59E0B" strokeWidth="2" opacity=".4">{[...Array(20)].map((_, i) => <line key={i} x1="320" y1="220" x2={320 + 400 * Math.cos((i * Math.PI) / 10)} y2={220 + 400 * Math.sin((i * Math.PI) / 10)} />)}</g>
-      {/* toran */}
-      <path d="M-10 8 Q320 112 650 8" fill="none" stroke="#0F766E" strokeWidth="3" />
-      {pend}
-      <rect x="0" y="372" width="640" height="48" fill="#E9DFC8" />
-      <rect x="350" y="366" width="136" height="54" fill="#BFE3D6" />
-      {/* Factory / store */}
-      <g transform="translate(36 200)">
-        <rect x="112" y="-2" width="14" height="44" fill="#0F3D3E" />
-        <path d="M0 50V20L30 40V20L60 40V20L90 40V20L120 40V50Z" fill="#0F3D3E" />
-        <rect x="0" y="50" width="134" height="122" fill="#FFFDF9" stroke="#0F3D3E" strokeWidth="4" />
-        {[...Array(6)].map((_, i) => <path key={i} d={`M${i * 22.3} 56h22.3v14a11 11 0 0 1 -22.3 0z`} fill={i % 2 ? "#FFFDF9" : "#F59E0B"} stroke="#0F3D3E" strokeWidth="1.5" />)}
-        {[12, 52].map((x) => <rect key={x} x={x} y="88" width="30" height="24" fill="#FCD34D" stroke="#0F3D3E" strokeWidth="3" />)}
-        <rect x="92" y="118" width="32" height="54" fill="#0F3D3E" />
-        <circle cx="42" cy="142" r="17" fill="#F59E0B" stroke="#0F3D3E" strokeWidth="3" />
-        <text x="42" y="149" textAnchor="middle" fontSize="20" fontWeight="800" fill="#0F3D3E">₹</text>
-        <text x="67" y="196" textAnchor="middle" fontSize="13" fontWeight="600" fill="#0F3D3E">Your Factory / Store</text>
+    <svg viewBox="0 0 640 420" className="art" role="img" aria-label="A factory ships goods by truck and container ship while its invoice passes a GSTN, e-Way Bill and EDPMS verified bridge and a bank disburses cash within 24 hours">
+      <circle cx="320" cy="215" r="190" fill="#FDE9B8" />
+      <g stroke="#F59E0B" strokeWidth="2" opacity=".28">{[...Array(20)].map((_, i) => <line key={i} x1="320" y1="215" x2={320 + 400 * Math.cos((i * Math.PI) / 10)} y2={215 + 400 * Math.sin((i * Math.PI) / 10)} />)}</g>
+      {/* quay + sea */}
+      <rect x="0" y="340" width="300" height="80" fill="#E9DFC8" />
+      <rect x="300" y="340" width="340" height="80" fill="#BFE3D6" />
+      <path d="M310 356 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0" fill="none" stroke="#FFFDF9" strokeWidth="2.5" opacity=".8" />
+      {/* factory */}
+      <g transform="translate(28 190)">
+        <rect x="120" y="-14" width="12" height="60" fill="#0F3D3E" /><rect x="136" y="-4" width="10" height="50" fill="#0F3D3E" />
+        <path d="M0 50V22L38 44V22L76 44V22L114 44V22L152 44V50Z" fill="#0F3D3E" />
+        <rect x="0" y="50" width="152" height="100" fill="#FFFDF9" stroke="#0F3D3E" strokeWidth="4" />
+        {[0, 1, 2].map((i) => <g key={i}><rect x={14 + i * 46} y="86" width="36" height="64" fill="#FCD34D" stroke="#0F3D3E" strokeWidth="3" /><path d={`M${14 + i * 46} 100h36M${14 + i * 46} 114h36M${14 + i * 46} 128h36`} stroke="#0F3D3E" strokeOpacity=".45" strokeWidth="2" /></g>)}
+        <rect x="44" y="58" width="64" height="18" rx="4" fill="#0F3D3E" /><text x="76" y="71" textAnchor="middle" fontSize="11" fontWeight="700" fill="#FCD34D">MANUFACTURING</text>
+        <text x="76" y="182" textAnchor="middle" fontSize="13" fontWeight="600" fill="#0F3D3E">Your Factory / Business</text>
       </g>
-      {/* Buyer office + ship */}
-      <g transform="translate(486 140)">
-        <path d="M55 0V-18" stroke="#0F3D3E" strokeWidth="3" />
-        <rect width="110" height="232" rx="4" fill="#0F3D3E" />
-        {[...Array(8)].map((_, r) => [0, 1, 2, 3].map((k) => <rect key={r + "" + k} x={12 + k * 24} y={16 + r * 26} width="16" height="16" fill={(r * 3 + k) % 3 === 0 ? "#FCD34D" : "#2F6F70"} />))}
-        <rect x="42" y="208" width="26" height="24" fill="#FFFDF9" />
+      {/* freight truck */}
+      <g transform="translate(190 298)">
+        <rect width="72" height="40" rx="3" fill="#F59E0B" stroke="#0F3D3E" strokeWidth="2.5" />
+        <path d="M76 12h16l10 14v14H76z" fill="#0F3D3E" /><rect x="82" y="16" width="10" height="9" fill="#BFE3D6" />
+        {[16, 88].map((x) => <circle key={x} cx={x} cy="42" r="7" fill="#0F3D3E" stroke="#FFFDF9" strokeWidth="2" />)}
       </g>
-      <g transform="translate(372 330)">
-        {["#F59E0B", "#10B981", "#FFFDF9", "#F59E0B", "#FFFDF9"].map((c, i) => <rect key={i} x={10 + (i % 3) * 30} y={i < 3 ? -2 : -26} width="28" height="24" fill={c} stroke="#0F3D3E" strokeWidth="2" transform={i < 3 ? "" : "translate(15 0)"} />)}
-        <path d="M0 22H108L92 46H16Z" fill="#0F3D3E" />
+      {/* container ship */}
+      <g transform="translate(346 266)">
+        {[0, 1, 2, 3, 4].map((i) => <rect key={"a" + i} x={8 + i * 34} y="30" width="32" height="22" fill={["#F59E0B", "#0F766E", "#FFFDF9", "#10B981", "#F59E0B"][i]} stroke="#0F3D3E" strokeWidth="2" />)}
+        {[1, 2, 3].map((i) => <rect key={"b" + i} x={8 + i * 34} y="8" width="32" height="22" fill={["#FFFDF9", "#F59E0B", "#0F766E"][i - 1]} stroke="#0F3D3E" strokeWidth="2" />)}
+        <rect x="186" y="16" width="26" height="36" fill="#FFFDF9" stroke="#0F3D3E" strokeWidth="2.5" /><rect x="192" y="22" width="14" height="8" fill="#BFE3D6" />
+        <path d="M0 52H216L192 84H26Z" fill="#0F3D3E" />
+        <text x="108" y="128" textAnchor="middle" fontSize="13" fontWeight="600" fill="#0F3D3E">Freight &amp; Cargo</text>
       </g>
-      <text x="418" y="408" textAnchor="middle" fontSize="13" fontWeight="600" fill="#0F3D3E">Buyer in India / Abroad</text>
-      {/* flows */}
-      <path id="cash" d="M172 250 C232 130 412 130 482 240" fill="none" stroke="#D97706" strokeWidth="3.5" strokeDasharray="9 8" strokeLinecap="round" className="flow" />
-      <path d="M482 300 C420 350 240 350 172 300" fill="none" stroke="#10B981" strokeWidth="3" strokeDasharray="4 9" strokeLinecap="round" className="flow rev" />
-      {!still && <circle r="8" fill="#F59E0B" stroke="#0F3D3E" strokeWidth="2"><animateMotion dur="4s" repeatCount="indefinite"><mpath href="#cash" /></animateMotion></circle>}
-      {/* trust bridge */}
-      <g transform="translate(325 168)">
-        <path d="M0 -40 L33 -27 V6 C33 25 16 38 0 44 C-16 38 -33 25 -33 6 V-27Z" fill="#FFFDF9" stroke="#0F3D3E" strokeWidth="4" />
-        <path d="M-14 2 l9 10 l19 -23" fill="none" stroke="#059669" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" />
-        <rect x="-104" y="54" width="208" height="26" rx="13" fill="#0F3D3E" />
-        <text y="72" textAnchor="middle" fontSize="12" fontWeight="700" fill="#FFFDF9">GSTN &amp; e-Way Bill Verified</text>
+      {/* bank */}
+      <g transform="translate(515 85)">
+        <path d="M0 26L45 0L90 26Z" fill="#F59E0B" stroke="#0F3D3E" strokeWidth="2" />
+        <rect y="28" width="90" height="7" fill="#FFFDF9" stroke="#0F3D3E" strokeWidth="2" />
+        {[0, 1, 2, 3, 4].map((i) => <rect key={i} x={8 + i * 17} y="38" width="9" height="34" fill="#FFFDF9" stroke="#0F3D3E" strokeWidth="1.5" />)}
+        <rect y="74" width="90" height="9" fill="#0F3D3E" />
+        <text x="45" y="106" textAnchor="middle" fontSize="13" fontWeight="600" fill="#0F3D3E">Cash Disbursed in 24h</text>
       </g>
-      {[["₹", 250, 205], ["$", 400, 205]].map(([s, x, y], i) => (
-        <g key={s} className="bob" style={{ animationDelay: `${i * 0.8}s` }}>
+      {/* flow lines */}
+      <path id="cash" d="M170 232 Q240 120 325 172 T515 150" fill="none" stroke="#D97706" strokeWidth="3.5" strokeDasharray="9 8" strokeLinecap="round" className="flow" />
+      <path d="M430 262 Q400 225 355 205" fill="none" stroke="#10B981" strokeWidth="3" strokeDasharray="5 8" strokeLinecap="round" className="flow rev" />
+      <path d="M262 322 H340" fill="none" stroke="#0F3D3E" strokeWidth="3" strokeDasharray="3 8" strokeLinecap="round" className="flow" />
+      {!still && <circle r="8" fill="#F59E0B" stroke="#0F3D3E" strokeWidth="2"><animateMotion dur="4.5s" repeatCount="indefinite"><mpath href="#cash" /></animateMotion></circle>}
+      {/* security bridge */}
+      <g transform="translate(325 172)">
+        <path d="M0 -40L33 -27V6C33 25 16 38 0 44C-16 38 -33 25 -33 6V-27Z" fill="#FFFDF9" stroke="#0F3D3E" strokeWidth="4" />
+        <path d="M-14 2l9 10l19 -23" fill="none" stroke="#047857" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" />
+        <rect x="-126" y="54" width="252" height="26" rx="13" fill="#0F3D3E" />
+        <text y="72" textAnchor="middle" fontSize="12" fontWeight="700" fill="#FFFDF9">GSTN • e-Way Bill • EDPMS Verified</text>
+      </g>
+      {[["₹", 240, 150], ["$", 400, 120], ["€", 455, 215]].map(([s, x, y], i) => (
+        <g key={s} className="bob" style={{ animationDelay: `${i * 0.7}s` }}>
           <circle cx={x} cy={y} r="17" fill="#FFFDF9" stroke="#F59E0B" strokeWidth="2.5" />
           <text x={x} y={y + 7} textAnchor="middle" fontSize="19" fontWeight="800" fill="#0F3D3E">{s}</text>
         </g>
@@ -81,12 +85,11 @@ function TradeNode() {
 }
 
 /* ---------- Hero quick limit widget ---------- */
-const BUYERS = { dom: ["Large corporate", "MNC / listed company", "Government / PSU", "Other business"], exp: ["USA", "Europe", "United Kingdom", "Middle East / Other"] };
 function LimitWidget() {
   const [tab, setTab] = useState("dom");
   const [cur, setCur] = useState("USD");
   const [val, setVal] = useState("");
-  const [buyer, setBuyer] = useState("");
+  const [term, setTerm] = useState("60");
   const [out, setOut] = useState(null);
   const c = tab === "dom" ? "INR" : cur;
   const reset = () => setOut(null);
@@ -99,7 +102,7 @@ function LimitWidget() {
     <form className="widget" onSubmit={check} id="check">
       <div className="tabs" role="tablist">
         {[["dom", "Domestic Discounting"], ["exp", "Export Receivables"]].map(([k, l]) => (
-          <button key={k} type="button" role="tab" aria-selected={tab === k} onClick={() => { setTab(k); setBuyer(""); reset(); }}>{l}</button>
+          <button key={k} type="button" role="tab" aria-selected={tab === k} onClick={() => { setTab(k); reset(); }}>{l}</button>
         ))}
       </div>
       <div className="row">
@@ -108,19 +111,17 @@ function LimitWidget() {
             <select value={cur} onChange={(e) => { setCur(e.target.value); reset(); }}>{["USD", "EUR", "GBP"].map((x) => <option key={x}>{x}</option>)}</select>
           </label>
         )}
-        <label className="grow">Invoice amount
+        <label className="grow">Invoice value
           <span className="field"><i>{SYM[c]}</i>
             <input inputMode="numeric" placeholder={tab === "dom" ? "25,00,000" : "50,000"} value={val ? (+val).toLocaleString(c === "INR" ? "en-IN" : "en-US") : ""} onChange={(e) => { setVal(e.target.value.replace(/\D/g, "")); reset(); }} />
           </span>
         </label>
-        <label className="grow">Target buyer / business type
-          <select value={buyer} onChange={(e) => setBuyer(e.target.value)}>
-            <option value="">Select…</option>{BUYERS[tab].map((b) => <option key={b}>{b}</option>)}
-          </select>
+        <label className="grow">Payment term
+          <select value={term} onChange={(e) => setTerm(e.target.value)}>{["30", "60", "90"].map((d) => <option key={d} value={d}>{d} days</option>)}</select>
         </label>
       </div>
-      <button className="btn btn-amber" type="submit">Check Eligible Limit</button>
-      <p className="result" aria-live="polite">{out ? <>Indicative limit: <b>{fmt(out, c)}</b> in about 24 hours</> : "Up to 95% of invoice value. No collateral."}</p>
+      <button className="btn btn-amber" type="submit">Check Eligible Credit Limit</button>
+      <p className="result" aria-live="polite">{out ? <>Indicative limit: <b>{fmt(out, c)}</b> in about 24 hours for a {term}-day term</> : "Up to 95% of invoice value. No collateral."}</p>
     </form>
   );
 }
@@ -137,7 +138,7 @@ function Calculator() {
         <div>
           <label className="slider"><span>Invoice value <b>{fmt(v)}</b></span>
             <input type="range" min={5e5} max={5e7} step={5e5} value={v} onChange={(e) => setV(+e.target.value)} /></label>
-          <label className="slider"><span>Credit period <b>{days} days</b></span>
+          <label className="slider"><span>Payment period <b>{days} days</b></span>
             <input type="range" min={30} max={90} step={15} value={days} onChange={(e) => setDays(+e.target.value)} /></label>
         </div>
         <dl className="out">
@@ -153,8 +154,8 @@ function Calculator() {
   );
 }
 
-const PRODUCTS = [["Domestic Invoice Discounting", "Get paid against approved invoices in 24–48 hours.", "Domestic"], ["Export Receivables", "Cash against export invoices while your buyer takes 30–90 days.", "Export"], ["PO Financing", "Fund raw material and production before you invoice.", "Domestic"], ["Vendor Financing", "Anchor buyers offer early payment to their suppliers.", "Domestic"]];
-const STEPS = [["Upload invoice", "Connect GST or your ERP. Invoice, e-Way Bill and Shipping Bill details are fetched automatically."], ["Instant automated credit check", "We assess your buyer's credibility, usually within 2 hours."], ["Disbursal in 24 hours", "Up to 95% of the invoice value is credited to your bank account."]];
+const PRODUCTS = [["Domestic Invoice Discounting", "Get paid against approved invoices in 24–48 hours.", "Domestic"], ["Export Receivables", "Cash against export invoices while your buyer takes 30–90 days.", "Export"], ["Purchase Order (PO) Financing", "Fund raw material and production before you invoice.", "Domestic"], ["Vendor Financing", "Anchor buyers offer early payment to their suppliers.", "Domestic"]];
+const STEPS = [["Connect GST / Shipping Bills", "Invoice, e-Way Bill and Shipping Bill details are fetched automatically."], ["AI credit check", "We assess your buyer's credibility, usually within 2 hours."], ["Funds credited in 24 hours", "Up to 95% of the invoice value is credited to your bank account."]];
 const QUOTES = [["We stopped waiting 75 days on European buyers. Cash arrived the next morning.", "Textile Exporter, Tirupur"], ["Vendor financing let us pay our suppliers early without touching our own credit lines.", "Auto Component Supplier, Pune"], ["Approval was based on the buyer, not our balance sheet. That changed our growth plan.", "Engineering Goods Exporter, Rajkot"]];
 const TRUST = ["100% GST & e-Way Bill verified", "RBI-regulated partner network", "FEMA & EDPMS compliant", "End-to-end encryption"];
 
@@ -186,15 +187,15 @@ export default function App() {
 
       <header className="hero" id="top">
         <div className="copy">
-          <span className="chip">Free to compare • 0.5% starting rate • Zero hidden fees</span>
+          <span className="chip">Free to compare • 0.5% starting rate • Zero collateral</span>
           <h1>Turn unpaid invoices into instant cash flow at <mark>0.5% a month</mark></h1>
           <p>Unlock up to ₹5 Crores ($600K) against domestic and export invoices in 24 hours. No collateral required.</p>
           <LimitWidget />
         </div>
         <div className="visual">
           <TradeNode />
-          <div className="badge b1"><span className="ico gold">₹</span><div><b>Inventory Stocked</b><small>Working Capital Disbursed</small></div></div>
-          <div className="badge b2"><span className="ico green">✓</span><div><b>Export Invoice Cleared</b><small>Cash in 24h</small></div></div>
+          <div className="badge b1"><span className="ico gold">₹</span><div><b>Working Capital Disbursed</b><small>95% Cash Upfront</small></div></div>
+          <div className="badge b2"><span className="ico green">✓</span><div><b>Export Bill Discounted</b><small>Direct Bank Transfer</small></div></div>
         </div>
       </header>
 
@@ -221,7 +222,7 @@ export default function App() {
       </section>
 
       <footer>
-        <div className="badges"><span>🧾 GST</span><span>🛃 EDPMS</span><span>🏦 RBI partner banks</span><span>🔒 ISO 27001</span></div>
+        <div className="badges"><span>🏦 RBI Regulated Partner Network</span><span>✓ FEMA Compliant</span><span>🛃 EDPMS Verified</span><span>🧾 GST Verified</span></div>
         <small>© 2026 OneTrade. Financing is provided by regulated partner lenders; rates are indicative.</small>
       </footer>
       <div className="sticky"><a className="btn btn-amber" href="#check">Check Eligible Limit</a></div>

@@ -10,7 +10,7 @@ a { color: inherit; text-decoration: none; }
 :focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
 button, input, select { font: inherit; }
 
-.btn { display: inline-flex; justify-content: center; align-items: center; padding: 14px 26px; border: 0; border-radius: 9999px; font-weight: 700; cursor: pointer; }
+.btn { display: inline-flex; justify-content: center; align-items: center; padding: 14px 26px; border: 0; border-radius: 12px; font-weight: 700; cursor: pointer; }
 .btn-amber { background: var(--amber); color: var(--teal); box-shadow: 0 4px 0 #b45309; transition: transform 0.12s, box-shadow 0.12s; }
 .btn-amber:hover { background: var(--amber-h); color: #082526; }
 .btn-amber:active { transform: translateY(3px); box-shadow: 0 1px 0 #b45309; }
@@ -36,7 +36,7 @@ button, input, select { font: inherit; }
 @keyframes dash { to { stroke-dashoffset: -34; } }
 @keyframes bob { 50% { transform: translateY(-6px); } }
 
-.badge { position: absolute; top: 16%; display: flex; align-items: center; gap: 10px; max-width: 46%; padding: 9px 13px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.badge { position: absolute; top: 1%; display: flex; align-items: center; gap: 10px; max-width: 46%; padding: 9px 13px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow); }
 .b1 { left: 0; } .b2 { right: 0; }
 .badge b { display: block; font-size: 13.5px; line-height: 1.2; }
 .badge small { display: block; font-size: 12px; color: var(--text2); }
